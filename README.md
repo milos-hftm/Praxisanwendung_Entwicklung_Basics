@@ -17,8 +17,9 @@ sowie **digitalen Formularen** für den Verein **KUD Karadjordje Bern**.
 
 ### 📄 Berichte
 - [`Technischer_Bericht_EntwicklungBasics.pdf`](bericht/Technischer_Bericht_EntwicklungBasics.pdf)  
-  Enthält Analyse, Datenmodell, UML-Diagramme, Use Cases und Umsetzungsidee.  
-- [`Fachübergreifendes_Transfer-Projekt.pdf`](bericht/Fachübergreifendes_Transfer-Projekt.pdf)  
+  Enthält Analyse, Datenmodell, UML-Diagramme, Use Cases und Umsetzungsidee.
+  
+- [`Fachübergreifendes Transfer-Projekt.pdf`](bericht/Fachübergreifendes%20Transfer-Projekt.pdf)
   Enthält funktionale Anforderungen, Entitäten, Geschäftsregeln und Beziehungen.
 
 ## 🎯 Relevante Inhalte – System Modelling
@@ -32,4 +33,4 @@ sowie **digitalen Formularen** für den Verein **KUD Karadjordje Bern**.
 - Tabellen: Mitglied, Termin, Formular, Teilnahme
 - Datentypen, Fremdschlüssel, Kardinalitäten
 - Normalisierung bis zur **3. Normalform (3NF)**
-- SQL-Implementierung: `tanzverein_datenbank.sql`
+- SQL-Implementierung: [`tanzverein_datenbank.sql`](datenbank/tanzverein_datenbank.sql)
