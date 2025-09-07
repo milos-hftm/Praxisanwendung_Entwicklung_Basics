@@ -8,7 +8,7 @@ an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur **ze
 - System Modelling
 - Requirements Engineering
 - Relational Databases
-- Programming
+- Java Programming
 
 ## 📁 Inhalt des Repositories
 
