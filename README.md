@@ -23,8 +23,8 @@ an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur **ze
 - [`Datenbankschema-Dokumentation.pdf`](datenbank/Datenbankschema-Dokumentation.pdf)  
   Beschreibung des relationalen Schemas inkl. Tabellen und Constraints.
 - [`tanzverein_datenbank.sql`](datenbank/tanzverein_datenbank.sql
-.(TransferProjekt_Implementierung.zip).
   SQL-Skript zur Erstellung der Tabellen (**Mitglied**, **Termin**, **Formular**, **Teilnahme**).
+- [`Transfer-Projekt_Implementierung.zip`](datenbank/Transfer-Projekt_Implementierung.zip
 
 ## 🎯 Relevante Inhalte – System Modelling
 - Geschaeftsdatenbereiche: Mitglieder, Termine, Formulare  
