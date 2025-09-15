@@ -1,14 +1,10 @@
-# KUD Karadjordje Bern – Termin- & Formularverwaltung (Praxisanwendung Entwicklung Basics)
+# Praxisanwendung Entwicklung Basics – KUD Karadjordje Bern (Termin- & Formularverwaltung)
 
-Diese Arbeit dokumentiert die Konzeption und Datenbank-Basis für eine Web-App zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen des Vereins **KUD Karadjordje Bern** (HFTM | HF Informatik).
-
-> Fokus: System Modelling · Requirements Engineering · Relationale Datenbanken · Java-Grundlagen
-
----
+Diese Arbeit dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung „Entwicklung Basics“ an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen für den Verein **KUD Karadjordje Bern**.
 
 ## Inhaltsverzeichnis
-
-- [Projektziele](#projektziele)
+- [Projektbeschreibung](#projektbeschreibung)
+- [Beteiligte Kurse](#beteiligte-kurse)
 - [Scope & Status](#scope--status)
 - [Systemvoraussetzungen](#systemvoraussetzungen)
 - [Ordnerstruktur](#ordnerstruktur)
@@ -19,120 +15,78 @@ Diese Arbeit dokumentiert die Konzeption und Datenbank-Basis für eine Web-App z
 - [Mitwirken](#mitwirken)
 - [Lizenz](#lizenz)
 
----
+## Projektbeschreibung
+Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung „Entwicklung Basics“ an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen für den Verein KUD Karadjordje Bern.
 
-## Projektziele
-
-- Trainings- und Vereins-Termine zentral verwalten  
-- Digitale Formulare (z. B. Anmeldungen/Teilnahmen) abbilden  
-- Konsistentes Datenmodell entwerfen und als SQL implementieren  
-- Grundbausteine für eine spätere Applikation schaffen
-
----
+## Beteiligte Kurse
+- System Modelling  
+- Requirements Engineering  
+- Relational Databases  
+- Java Programming
 
 ## Scope & Status
-
 - ✅ **Erarbeitet**: Anforderungen, UML/Use-Cases, relationales Schema, SQL-Skript  
 - 🔜 **In Planung**: Applikations-Prototyp (UI/Backend), Import/Export, Rollenkonzept
 
----
-
 ## Systemvoraussetzungen
-
 - PostgreSQL **oder** MySQL/MariaDB  
 - Optional: psql / mysql CLI
 
----
-
 ## Ordnerstruktur
-
+```
 .
-├── bericht/ # Berichte & Dokumentation (PDF)
-│ ├── Technischer_Bericht_EntwicklungBasics.pdf
-│ └── Fachuebergreifendes Transfer-Projekt.pdf
-└── datenbank/ # Datenbankartefakte
-├── Datenbankschema-Dokumentation.pdf
-├── tanzverein_datenbank.sql
-└── Transfer-Projekt_Implementierung.zip
-
-
----
+├── bericht/
+│   ├── Technischer_Bericht_EntwicklungBasics.pdf
+│   └── Fachuebergreifendes Transfer-Projekt.pdf
+└── datenbank/
+    ├── Datenbankschema-Dokumentation.pdf
+    ├── tanzverein_datenbank.sql
+    ├── seed.sql
+    └── Transfer-Projekt_Implementierung.zip
+```
 
 ## Quickstart: Datenbank
-
 > Das SQL-Skript erstellt die Kernobjekte: **Mitglied**, **Termin**, **Formular**, **Teilnahme** (inkl. Keys/Constraints).
 
 ### Variante A: PostgreSQL
-
-# 1) Neue DB erstellen (optional)
+```bash
 createdb tanzverein
-
-# 2) Schema einspielen
 psql -d tanzverein -f datenbank/tanzverein_datenbank.sql
+psql -d tanzverein -f datenbank/seed.sql
+```
 
-
-Variante B: MySQL/MariaDB
-# 1) Neue DB erstellen (optional)
+### Variante B: MySQL/MariaDB
+```bash
 mysql -u <user> -p -e "CREATE DATABASE IF NOT EXISTS tanzverein CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-
-# 2) Schema einspielen
 mysql -u <user> -p tanzverein < datenbank/tanzverein_datenbank.sql
+mysql -u <user> -p tanzverein < datenbank/seed.sql
+```
 
-Smoke-Test
+## Datenmodell (Kurzüberblick)
+- **Mitglied** ↔ **Teilnahme** ↔ **Termin**  
+  Mitglieder melden sich zu Terminen an; **Teilnahme** bildet die N:M-Beziehung ab.  
+- **Formular** ↔ (optional) Verknüpfung zu Termin/Workflow  
+  Formulare dienen der strukturierten Datenerfassung (z. B. Anmeldung, Feedback usw.).
 
--- Anzahl Tabellen prüfen (Beispiel; ggf. Schema/DB-Namen anpassen)
-SELECT table_name
-FROM information_schema.tables
-WHERE table_schema NOT IN ('information_schema','pg_catalog');
+Ziele: referenzielle Integrität, klare Kardinalitäten, Normalisierung bis mind. 3NF, sinnvolle Datentypen und Constraints.
 
--- Für MySQL/MariaDB:
--- SELECT table_name FROM information_schema.tables WHERE table_schema='tanzverein';
+## Artefakte & Dokumente
+- [`bericht/Technischer_Bericht_EntwicklungBasics.pdf`](bericht/Technischer_Bericht_EntwicklungBasics.pdf)  
+- [`bericht/Fachuebergreifendes Transfer-Projekt.pdf`](bericht/Fachuebergreifendes%20Transfer-Projekt.pdf)  
+- [`datenbank/Datenbankschema-Dokumentation.pdf`](datenbank/Datenbankschema-Dokumentation.pdf)  
+- [`datenbank/tanzverein_datenbank.sql`](datenbank/tanzverein_datenbank.sql)  
+- [`datenbank/seed.sql`](datenbank/seed.sql)  
+- [`datenbank/Transfer-Projekt_Implementierung.zip`](datenbank/Transfer-Projekt_Implementierung.zip)
 
-Datenmodell (Kurzüberblick)
+## Geplante Erweiterungen
+- Minimal-Viable-App (CRUD für Mitglieder, Termine, Formular-Workflow)  
+- Rollen & Berechtigungen (Trainer:in, Mitglied, Admin)  
+- Validierungen (z. B. Kollisionsprüfung von Terminen)  
+- Exporte (CSV/PDF), E-Mail-Benachrichtigungen  
+- CI/Checks (Linting, SQL-Validierung), Beispiel-Datensatz / Seeds
 
-Mitglied ↔ Teilnahme ↔ Termin
-Mitglieder melden sich zu Terminen an; Teilnahme bildet die N:M-Beziehung ab.
-
-Formular ↔ (optional) Verknüpfung zu Termin/Workflow
-Formulare dienen der strukturierten Datenerfassung (Anmeldung, Feedback usw.).
-
-Ziele: Referenzielle Integrität, klare Kardinalitäten, Normalisierung bis mind. 3NF, sinnvolle Datentypen und Constraints.
-
-Artefakte & Dokumente
-
-Technischer Bericht: Analyse, Datenmodell, UML, Use-Cases, Umsetzungsidee
-bericht/Technischer_Bericht_EntwicklungBasics.pdf
-
-Transfer-Projekt: Funktionale Anforderungen, Entitäten, Geschäftsregeln
-bericht/Fachuebergreifendes Transfer-Projekt.pdf
-
-DB-Schema-Doku: Tabellen & Constraints erklärt
-datenbank/Datenbankschema-Dokumentation.pdf
-
-SQL-Skript: Tabellenanlage
-datenbank/tanzverein_datenbank.sql
-
-Implementierungs-ZIP (Begleitmaterial)
-datenbank/Transfer-Projekt_Implementierung.zip
-
-Geplante Erweiterungen
-
-Minimal-Viable-App (CRUD für Termine/Mitglieder, Formular-Workflow)
-
-Rollen & Berechtigungen (Trainer:in, Mitglied, Admin)
-
-Validierungen (z. B. Kollisionsprüfung von Terminen)
-
-Exporte (CSV/PDF), E-Mail-Benachrichtigungen
-
-CI-Checks (Linting/SQL-Validierung), Example-Dataset/Seeds
-
-Mitwirken
-
+## Mitwirken
 Vorschläge oder Issues gerne eröffnen (Fehler in der Doku, SQL-Dialekt-Hinweise, Erweiterungswünsche).
 
-Lizenz
-
+## Lizenz
 Noch nicht festgelegt. Bis dahin: Nutzung zu Lern-/Review-Zwecken im Rahmen der HFTM.
-
-
