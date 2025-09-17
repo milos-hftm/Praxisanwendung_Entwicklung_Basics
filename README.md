@@ -93,7 +93,7 @@ Ziele: referenzielle Integritaet, klare Kardinalitaeten, Normalisierung bis mind
 
 ## Artefakte & Dokumente
 - [`bericht/Technischer_Bericht_EntwicklungBasics.pdf`](bericht/Technischer_Bericht_EntwicklungBasics.pdf)  
-- [`bericht/Fachuebergreifendes Transfer-Projekt.pdf`](bericht/Fachuebergreifendes_20Transfer-Projekt.pdf)
+- [`bericht/Fachübergreifendes Transfer-Projekt.pdf`](bericht/Fach%C3%BCbergreifendes%20Transfer-Projekt.pdf)
 - [`datenbank/Datenbankschema-Dokumentation.pdf`](datenbank/Datenbankschema-Dokumentation.pdf)  
 - [`datenbank/tanzverein_datenbank.sql`](datenbank/tanzverein_datenbank.sql)  
 - [`datenbank/seed.sql`](datenbank/seed.sql)  
