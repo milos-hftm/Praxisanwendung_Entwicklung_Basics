@@ -2,6 +2,10 @@
 
 Diese Arbeit dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "Entwicklung Basics" an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen fuer den Verein **KUD Karadjordje Bern**.
 
+# Webseite noch in Bearbeitung
+
+https://kud-verein.vercel.app/
+
 ## Inhaltsverzeichnis
 - [Projektbeschreibung](#projektbeschreibung)
 - [Beteiligte Kurse](#beteiligte-kurse)
