@@ -33,7 +33,7 @@ Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "E
 
 
 ## Systemvoraussetzungen
-- PostgreSQL **oder** MySQL/MariaDB  
+- PostgreSQL 
 
 ## Ordnerstruktur
 ```
@@ -61,18 +61,6 @@ psql -d tanzverein -f datenbank/tanzverein_datenbank.sql
 
 # 3) Seed-Daten einspielen
 psql -d tanzverein -f datenbank/seed.sql
-```
-
-### Variante B: MySQL/MariaDB
-```bash
-# 1) Neue DB erstellen (optional)
-mysql -u <user> -p -e "CREATE DATABASE IF NOT EXISTS tanzverein CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-
-# 2) Schema einspielen
-mysql -u <user> -p tanzverein < datenbank/tanzverein_datenbank.sql
-
-# 3) Seed-Daten einspielen
-mysql -u <user> -p tanzverein < datenbank/seed.sql
 ```
 
 **Smoke-Test**
