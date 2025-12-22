@@ -30,11 +30,10 @@ Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "E
 
 ## Scope & Status
 - ✅ **Erarbeitet**: Anforderungen, UML/Use-Cases, relationales Schema, SQL-Skript, Seed-Daten  
-- 🔜 **In Planung**: Applikations-Prototyp (UI/Backend), Import/Export, Rollenkonzept
+
 
 ## Systemvoraussetzungen
 - PostgreSQL **oder** MySQL/MariaDB  
-- Optional: psql / mysql CLI
 
 ## Ordnerstruktur
 ```
