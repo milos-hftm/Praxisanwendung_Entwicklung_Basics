@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ch.hftm.controller.TeilnahmeController" maxWidth="Infinity" maxHeight="Infinity">
+
+    <!-- Top: Titel und Suche -->
+    <top>
+        <VBox spacing="18" styleClass="page-header">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button text="← Zurück" onAction="#handleBack" styleClass="button-secondary" style="-fx-padding: 8 12 8 12;"/>
+                <Label text="Teilnahmeverwaltung" styleClass="header-title"/>
+            </HBox>
+            <HBox spacing="12" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <TextField fx:id="searchField" promptText="Volltextsuche (ID, Mitglied, Termin, Status)" prefWidth="280"/>
+                <Button text="Suchen" onAction="#applyFilter" styleClass="button-primary"/>
+                <TextField fx:id="searchMitgliedField" promptText="Mitglied-ID" prefWidth="140"/>
+                <Button text="Nach Mitglied" onAction="#handleSearchMitglied" styleClass="button-primary"/>
+                <TextField fx:id="searchTerminField" promptText="Termin-ID" prefWidth="140"/>
+                <Button text="Nach Termin" onAction="#handleSearchTermin" styleClass="button-primary"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center: Tabelle -->
+    <center>
+        <TableView fx:id="teilnahmeTable">
+            <BorderPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </BorderPane.margin>
+            <columns>
+                <TableColumn fx:id="teilnahmeIdColumn" text="ID" prefWidth="70"/>
+                <TableColumn fx:id="mitgliedIdColumn" text="Mitglied-ID" prefWidth="120"/>
+                <TableColumn fx:id="terminIdColumn" text="Termin-ID" prefWidth="120"/>
+                <TableColumn fx:id="formularIdColumn" text="Formular-ID" prefWidth="120"/>
+                <TableColumn fx:id="statusColumn" text="Status" prefWidth="140"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- Right: Teilnahme-Details -->
+    <right>
+        <VBox spacing="18" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 0 1;" prefWidth="340">
+            <Label text="Teilnahme Details" style="-fx-font-size: 18px; -fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+
+            <VBox spacing="5">
+                <Label text="Mitglied-ID:*"/>
+                <TextField fx:id="mitgliedIdField" promptText="z. B. 5"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Termin-ID:*"/>
+                <TextField fx:id="terminIdField" promptText="z. B. 12"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Formular-ID (optional):"/>
+                <TextField fx:id="formularIdField" promptText="z. B. 3"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Status:*"/>
+                <ComboBox fx:id="statusCombo" maxWidth="Infinity"/>
+            </VBox>
+
+            <Label text="* Pflichtfelder" style="-fx-font-size: 10px; -fx-text-fill: #666;"/>
+
+            <Separator/>
+            <VBox spacing="12">
+                <Button fx:id="saveButton" text="Neu speichern" onAction="#handleSave" maxWidth="Infinity" styleClass="button-primary"/>
+                <Button fx:id="updateButton" text="Aktualisieren" onAction="#handleUpdate" maxWidth="Infinity" styleClass="button" disable="true"/>
+                <Button fx:id="deleteButton" text="Löschen" onAction="#handleDelete" maxWidth="Infinity" styleClass="button-danger" disable="true"/>
+                <Button fx:id="clearButton" text="Felder leeren" onAction="#handleClear" maxWidth="Infinity" styleClass="button-secondary"/>
+            </VBox>
+        </VBox>
+    </right>
+
+
+
+</BorderPane>

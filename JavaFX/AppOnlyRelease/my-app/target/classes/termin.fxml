@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="ch.hftm.controller.TerminController" maxWidth="Infinity" maxHeight="Infinity">
+    
+    <!-- Top: Titel und Filter -->
+    <top>
+        <VBox spacing="18" styleClass="page-header">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button text="← Zurück" onAction="#handleBack" styleClass="button-secondary" style="-fx-padding: 8 12 8 12;"/>
+                <Label text="Terminverwaltung" styleClass="header-title"/>
+            </HBox>
+            <HBox spacing="12" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <TextField fx:id="searchField" promptText="Suche nach Ort oder Datum..." prefWidth="260"/>
+                <DatePicker fx:id="vonDatumPicker" promptText="Von-Datum (TT.MM.JJJJ)" prefWidth="190" editable="true" onAction="#handleDateRangeChanged"/>
+                <DatePicker fx:id="bisDatumPicker" promptText="Bis-Datum (TT.MM.JJJJ)" prefWidth="190" editable="true" onAction="#handleDateRangeChanged"/>
+                <Button text="Filter löschen" onAction="#handleClearFilters" styleClass="button-secondary"/>
+                <Button text="Suchen" onAction="#handleSearch" styleClass="button-primary"/>
+                <CheckBox fx:id="nurKommendeCheckBox" text="Nur kommende Termine" onAction="#handleFilterToggle"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <!-- Center: Tabelle -->
+    <center>
+        <TableView fx:id="terminTable">
+            <BorderPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </BorderPane.margin>
+            <columns>
+                <TableColumn fx:id="terminIdColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="datumColumn" text="Datum" prefWidth="120"/>
+                <TableColumn fx:id="uhrzeitColumn" text="Uhrzeit" prefWidth="100"/>
+                <TableColumn fx:id="ortColumn" text="Ort" prefWidth="250"/>
+                <TableColumn fx:id="ferienFlagColumn" text="Ferien" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+    
+    <!-- Right: Eingabeformular -->
+    <right>
+        <VBox spacing="18" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 0 1;" prefWidth="340">
+            <Label text="Termin Details" style="-fx-font-size: 18px; -fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+            
+            <VBox spacing="5">
+                <Label text="Datum:"/>
+                <DatePicker fx:id="datumPicker" promptText="Datum wählen"/>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Uhrzeit (HH:MM):"/>
+                <TextField fx:id="uhrzeitField" promptText="18:00"/>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Ort:"/>
+                <TextField fx:id="ortField" promptText="Turnhalle Bern"/>
+            </VBox>
+            
+            <CheckBox fx:id="ferienCheckBox" text="Ferien"/>
+            
+            <Separator/>
+            
+            <VBox spacing="12">
+                <Button fx:id="saveButton" text="Neu speichern" onAction="#handleSave" maxWidth="Infinity" styleClass="button-primary"/>
+                <Button fx:id="updateButton" text="Aktualisieren" onAction="#handleUpdate" maxWidth="Infinity" styleClass="button" disable="true"/>
+                <Button fx:id="deleteButton" text="Löschen" onAction="#handleDelete" maxWidth="Infinity" styleClass="button-danger" disable="true"/>
+                <Button fx:id="clearButton" text="Felder leeren" onAction="#handleClear" maxWidth="Infinity" styleClass="button-secondary"/>
+                <Separator/>
+                <Button fx:id="exportButton" text="CSV Export" onAction="#handleExportCsv" maxWidth="Infinity" styleClass="button"/>
+            </VBox>
+        </VBox>
+    </right>
+
+
+    
+</BorderPane>

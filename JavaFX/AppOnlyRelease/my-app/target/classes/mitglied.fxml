@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="ch.hftm.controller.MitgliedController" maxWidth="Infinity" maxHeight="Infinity">
+    
+    <!-- Top: Titel und Suche -->
+    <top>
+        <VBox spacing="18" styleClass="page-header">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button text="← Zurück" onAction="#handleBack" styleClass="button-secondary" style="-fx-padding: 8 12 8 12;"/>
+                <Label text="Mitgliederverwaltung" styleClass="header-title"/>
+            </HBox>
+            <HBox spacing="12" alignment="CENTER_LEFT" styleClass="filter-bar">
+                <TextField fx:id="searchField" promptText="Suche nach Name oder E-Mail..." prefWidth="350"/>
+                <Button text="Suchen" onAction="#handleSearch" styleClass="button-primary"/>
+                <Button text="CSV Export" onAction="#handleExportCsv" styleClass="button-secondary"/>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <!-- Center: Tabelle -->
+    <center>
+        <TableView fx:id="mitgliedTable">
+            <BorderPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </BorderPane.margin>
+            <columns>
+                <TableColumn fx:id="mitgliedIdColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="vornameColumn" text="Vorname" prefWidth="150"/>
+                <TableColumn fx:id="nachnameColumn" text="Nachname" prefWidth="150"/>
+                <TableColumn fx:id="emailColumn" text="E-Mail" prefWidth="250"/>
+                <TableColumn fx:id="rolleColumn" text="Rolle" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+    
+    <!-- Right: Eingabeformular -->
+    <right>
+        <VBox spacing="18" style="-fx-background-color: white; -fx-padding: 25; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 0 1;" prefWidth="360">
+            <Label text="Mitglied Details" style="-fx-font-size: 18px; -fx-text-fill: #1a1a1a; -fx-font-weight: bold;"/>
+            
+            <VBox spacing="5">
+                <Label text="Vorname:*"/>
+                <TextField fx:id="vornameField" promptText="Max"/>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Nachname:*"/>
+                <TextField fx:id="nachnameField" promptText="Mustermann"/>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="E-Mail:*"/>
+                <TextField fx:id="emailField" promptText="max.mustermann@example.com"/>
+            </VBox>
+            
+            <VBox spacing="5">
+                <Label text="Rolle:*"/>
+                <ComboBox fx:id="rolleComboBox" maxWidth="Infinity"/>
+            </VBox>
+            
+            <Label text="* Pflichtfelder" style="-fx-font-size: 10px; -fx-text-fill: #666;"/>
+            
+            <Separator/>
+            
+            <VBox spacing="12">
+                <Button fx:id="saveButton" text="Neu speichern" onAction="#handleSave" maxWidth="Infinity" styleClass="button-primary"/>
+                <Button fx:id="updateButton" text="Aktualisieren" onAction="#handleUpdate" maxWidth="Infinity" styleClass="button" disable="true"/>
+                <Button fx:id="deleteButton" text="Löschen" onAction="#handleDelete" maxWidth="Infinity" styleClass="button-danger" disable="true"/>
+                <Button fx:id="clearButton" text="Felder leeren" onAction="#handleClear" maxWidth="Infinity" styleClass="button-secondary"/>
+            </VBox>
+        </VBox>
+    </right>
+
+
+    
+</BorderPane>

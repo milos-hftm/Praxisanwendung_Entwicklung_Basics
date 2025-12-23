@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="ch.hftm.controller.MainController" maxWidth="Infinity" maxHeight="Infinity">
+    
+    <!-- Top: Header mit Logo -->
+    <top>
+        <VBox styleClass="header" alignment="CENTER">
+            <HBox alignment="CENTER" spacing="35">
+                <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+                    <image>
+                        <Image url="@logo.png"/>
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_LEFT" spacing="5">
+                    <Label text="KUD Karadjordje Bern" styleClass="title" style="-fx-text-fill: white;"/>
+                    <Label text="Termin- und Formularverwaltung" styleClass="subtitle" style="-fx-text-fill: white;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+    
+    <!-- Center: Hauptmenü -->
+    <center>
+        <VBox spacing="50" alignment="CENTER" style="-fx-padding: 40 60 40 60;">
+            <VBox alignment="CENTER" spacing="12">
+                <Label text="Willkommen zurück!" style="-fx-font-size: 32px; -fx-font-weight: 800; -fx-text-fill: -color-text-primary;"/>
+                <Label text="Bitte wählen Sie ein Modul aus, um fortzufahren" style="-fx-font-size: 16px; -fx-text-fill: -color-text-secondary; -fx-font-weight: 400;"/>
+            </VBox>
+            
+            <GridPane hgap="40" vgap="40" alignment="CENTER">
+                <!-- Zeile 1 -->
+                <Button onAction="#handleTerminverwaltung" 
+                        styleClass="module-button" GridPane.columnIndex="0" GridPane.rowIndex="0" wrapText="true">
+                    <text>📅
+Terminverwaltung</text>
+                </Button>
+                
+                <Button onAction="#handleMitgliederverwaltung" 
+                        styleClass="module-button" GridPane.columnIndex="1" GridPane.rowIndex="0" wrapText="true">
+                    <text>👥
+Mitgliederverwaltung</text>
+                </Button>
+                
+                <!-- Zeile 2 -->
+                <Button onAction="#handleFormularverwaltung" 
+                        styleClass="module-button" GridPane.columnIndex="0" GridPane.rowIndex="1" wrapText="true">
+                    <text>📋
+Formularverwaltung</text>
+                </Button>
+                
+                <Button onAction="#handleTeilnahmeverwaltung" 
+                        styleClass="module-button" GridPane.columnIndex="1" GridPane.rowIndex="1" wrapText="true">
+                    <text>✅
+Teilnahmeverwaltung</text>
+                </Button>
+            </GridPane>
+            
+            <Button text="⚫ Beenden" onAction="#handleBeenden" 
+                    styleClass="exit-button"/>
+        </VBox>
+    </center>
+    
+    <!-- Bottom: Modern Footer -->
+    <bottom>
+        <VBox style="-fx-background-color: -color-bg-tertiary; -fx-border-color: -color-border; -fx-border-width: 1 0 0 0; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="40" style="-fx-padding: 0 20;">
+                <Label text="© 2025 KUD Karadjordje Bern" style="-fx-font-size: 12px; -fx-text-fill: -color-text-secondary; -fx-font-weight: 500;"/>
+                <Label text="HFTM Praxisanwendung | Version 1.0" style="-fx-font-size: 12px; -fx-text-fill: -color-text-secondary; -fx-font-weight: 500;"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="dbStatusLabel" text="✓ PostgreSQL verbunden" style="-fx-font-size: 14px; -fx-text-fill: #0f766e; -fx-font-weight: 700; -fx-background-color: #d1fae5; -fx-padding: 6 10; -fx-background-radius: 12; -fx-border-color: #0f766e; -fx-border-width: 1; -fx-border-radius: 12;"/>
+            </HBox>
+        </VBox>
+    </bottom>
+    
+</BorderPane>
