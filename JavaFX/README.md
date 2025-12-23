@@ -27,7 +27,6 @@ Desktop-Anwendung zur Verwaltung von Terminen, Mitgliedern, Formularen und Teiln
 ### Bedienung (Shortcuts)
 
 - **F11**: Vollbild umschalten (die App startet standardmässig im Vollbild)
-- **F12**: Screenshot speichern (Standard: `bericht/screenshots`, Fallback: `~/.kud-karadjordje/screenshots`)
 
 ## 📁 Projektstruktur
 
@@ -90,3 +89,4 @@ Optional kannst du sie überschreiben über:
 ## 📝 Lizenz
 
 HFTM-Praxisanwendung. Nutzung im Rahmen der Informatiker-HF-Ausbildung.
+
