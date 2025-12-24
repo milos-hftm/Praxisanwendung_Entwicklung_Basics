@@ -69,6 +69,7 @@ Die Anwendung dient der zentralen Verwaltung von:
 ├── bericht/
 │   ├── Technischer_Bericht_EntwicklungBasics.pdf
 │   └── Fachuebergreifendes Transfer-Projekt.pdf
+│   └── screenshots
 └── datenbank/
     ├── Datenbankschema-Dokumentation.pdf
     ├── tanzverein_datenbank.sql
