@@ -69,6 +69,7 @@ Die Anwendung dient der zentralen Verwaltung von:
 ├── bericht/
 │   ├── Technischer_Bericht_EntwicklungBasics.pdf
 │   └── Fachuebergreifendes Transfer-Projekt.pdf
+│   └── Projekt_Dokumentation_KUD_Karadjordje.pdf
 │   └── screenshots
 └── datenbank/
     ├── Datenbankschema-Dokumentation.pdf
