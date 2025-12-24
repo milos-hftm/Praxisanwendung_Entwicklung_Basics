@@ -1,10 +1,10 @@
 # Praxisanwendung Entwicklung Basics – KUD Karadjordje Bern (Termin- & Formularverwaltung)
 
-Diese Arbeit dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "Entwicklung Basics" an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen fuer den Verein **KUD Karadjordje Bern**.
+Diese Arbeit dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung **„Entwicklung Basics“** an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen für den Verein **KUD Karadjordje Bern**.
 
-# Webseite noch in Bearbeitung
+> Webseite (noch in Bearbeitung): https://kud-verein.vercel.app/
 
-https://kud-verein.vercel.app/
+---
 
 ## Inhaltsverzeichnis
 - [Projektbeschreibung](#projektbeschreibung)
@@ -12,6 +12,7 @@ https://kud-verein.vercel.app/
 - [Scope & Status](#scope--status)
 - [Systemvoraussetzungen](#systemvoraussetzungen)
 - [Ordnerstruktur](#ordnerstruktur)
+- [Quickstart: JavaFX-App](#quickstart-javafx-app)
 - [Quickstart: Datenbank](#quickstart-datenbank)
 - [Datenmodell (Kurzueberblick)](#datenmodell-kurzueberblick)
 - [Artefakte & Dokumente](#artefakte--dokumente)
@@ -19,25 +20,45 @@ https://kud-verein.vercel.app/
 - [Mitwirken](#mitwirken)
 - [Lizenz](#lizenz)
 
+---
+
 ## Projektbeschreibung
-Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "Entwicklung Basics" an der HF Informatik (HFTM). Ziel ist die Entwicklung einer Applikation zur zentralen Verwaltung von Tanztrainingsterminen sowie digitalen Formularen fuer den Verein KUD Karadjordje Bern.
+Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung **„Entwicklung Basics“** an der HF Informatik (HFTM).  
+Ziel ist die Entwicklung einer **JavaFX Desktop-Applikation** zur Verwaltung von:
+- **Tanztrainingsterminen** (Anlegen, Anzeigen, Bearbeiten, Löschen)
+- **Mitgliedern** und **Teilnahmen** (Anmeldungen zu Terminen)
+- **digitalen Formularen** (z. B. Anmeldung, Feedback; je nach Umsetzungsstand)
+
+---
 
 ## Beteiligte Kurse
-- System Modelling  
-- Requirements Engineering  
-- Relational Databases  
+- System Modelling
+- Requirements Engineering
+- Relational Databases
 - Java Programming
 
-## Scope & Status
-- ✅ **Erarbeitet**: Anforderungen, UML/Use-Cases, relationales Schema, SQL-Skript, Seed-Daten  
+---
 
+## Scope & Status
+- ✅ **Erarbeitet**: Anforderungen, UML/Use-Cases, relationales Schema, SQL-Skript, Seed-Daten
+- ✅ **Implementiert**: JavaFX Desktop-App (**Maven**) im Ordner `JavaFX/` inkl. DB-Anbindung (**PostgreSQL**) und CRUD-Grundfunktionen (Create/Read/Update/Delete) über GUI
+
+> Hinweis: Je nach Entwicklungsstand sind Formularfunktionen evtl. teilweise umgesetzt (siehe Dokumente/Artefakte).
+
+---
 
 ## Systemvoraussetzungen
-- PostgreSQL 
+- Java (JDK empfohlen: **17+**)
+- Maven
+- PostgreSQL
+
+---
 
 ## Ordnerstruktur
-```
+```text
 .
+├── JavaFX/
+│   ├── (Maven-Projekt: pom.xml, src/, resources/, JavaFX-UI + Controller + DB-Zugriff)
 ├── bericht/
 │   ├── Technischer_Bericht_EntwicklungBasics.pdf
 │   └── Fachuebergreifendes Transfer-Projekt.pdf
@@ -46,10 +67,12 @@ Dieses Repository dokumentiert die Einzelarbeit im Rahmen der Praxisanwendung "E
     ├── tanzverein_datenbank.sql
     ├── seed.sql
     └── Transfer-Projekt_Implementierung.zip
-```
 
-## Quickstart: Datenbank
-> Das SQL-Skript erstellt die Kernobjekte: **Mitglied**, **Termin**, **Formular**, **Teilnahme** (inkl. Keys/Constraints). `seed.sql` fuellt die Tabellen mit Beispieldaten.
+## Quickstart: JavaFX-App
+### App starten
+```bash
+cd JavaFX
+mvn clean javafx:run
 
 ### Variante A: PostgreSQL
 ```bash
