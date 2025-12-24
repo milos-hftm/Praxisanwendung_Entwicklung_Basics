@@ -130,16 +130,7 @@ SELECT schemaname, tablename
 FROM pg_tables
 WHERE schemaname NOT IN ('pg_catalog','information_schema');
 ```
-
 ---
-
-## Datenmodell (Kurzueberblick)
-
-- **Mitglied** ↔ **Teilnahme** ↔ **Termin**  
-  Mitglieder melden sich zu Terminen an; **Teilnahme** bildet die **N:M-Beziehung** ab.
-
-- **Formular** (optional verknüpft)  
-  Formulare dienen der strukturierten Datenerfassung (z. B. Anmeldung, Feedback).
 
 **Ziele:**
 - referenzielle Integrität (FKs)
@@ -187,19 +178,6 @@ Optional kannst du sie überschreiben über:
 - [`datenbank/tanzverein_datenbank.sql`](datenbank/tanzverein_datenbank.sql)
 - [`datenbank/seed.sql`](datenbank/seed.sql)
 - `datenbank/Transfer-Projekt_Implementierung/` (Docker Compose + Flyway Migrationen)
-
----
-
-## Geplante Erweiterungen
-- Rollen & Berechtigungen weiter ausbauen
-- Validierungen (z. B. Kollisionsprüfung von Terminen)
-- Exporte (CSV/PDF), E-Mail-Benachrichtigungen
-- CI/Checks (z. B. Build-Checks, SQL-Validierung), Beispiel-Datensätze / Seeds
-
----
-
-## Mitwirken
-Vorschläge oder Issues gerne eröffnen (Fehler in der Doku, SQL-Dialekt-Hinweise, Erweiterungswünsche).
 
 ---
 
